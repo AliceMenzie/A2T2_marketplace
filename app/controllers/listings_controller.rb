@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :show]
-  # before_action :set_listing, only: [:show]
-
+  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :set_listing, only: [:show, :edit, :update, :destroy ]
+  
   def index
     @listings = Listing.all
     end
@@ -11,7 +11,24 @@ class ListingsController < ApplicationController
   end
 
   def edit
+
   end
+
+  def destroy 
+    @listing.destroy
+    flash[:alert] = 'deleted listing'
+    redirect_to listings_path
+  end 
+
+
+
+  def update 
+    if @listing.update(listing_params)
+      redirect_to @listing
+    else 
+      render :edit
+    end
+  end 
 
   def show
     @listing = Listing.find(params[:id])
@@ -34,6 +51,12 @@ class ListingsController < ApplicationController
   def listing_params
     params.require(:listing).permit(:name, :description, :price, :category)
   end
+
+  def set_listing
+    @listing = Listing.find(params[:id])
+  end
+
+  
 end
 
 

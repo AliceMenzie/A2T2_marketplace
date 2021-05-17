@@ -3,3 +3,5 @@
 <p><%= @listing.description  %></p>
 <p><%= @listing.category  %></p>
 <p><%= @listing.price  %></p>
+<%= link_to 'Update', edit_listing_path(@listing) %>
+<%= link_to 'Destroy', listing_path(@listing), method: :delete, data:{confirm: 'Are you sure you want to delete listing?'}  %>

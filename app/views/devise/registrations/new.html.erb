@@ -1,9 +1,14 @@
+
+<div class="row">
+
+<div class="col-8 offset-4">
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-<%# ## I just added this in manually not configured please check  %>
+<%# ## this is added with application controller for username   %>
   <div class="field">
     <%= f.label :username %><br />
     <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
@@ -26,10 +31,35 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  <%# resource.new this is probably not best place for this try to put it in the controllers%>
+  <h4>Address</h4>
+  <% resource.addresses.new %>
+  <%= f.fields_for :addresses do |addresses_form| %>
+<div class="field">
+        <%= addresses_form.label :state %><br />
+        <%= addresses_form.text_field :state %>
+</div>
+<div class="field">
+        <%= addresses_form.label :postcode %><br />
+        <%= addresses_form.text_field :postcode %>
+</div>
+<div class="field">
+				<%= addresses_form.label :street %><br />
+        <%= addresses_form.text_field :street %>
+</div>
+<div class="field">
+				<%= addresses_form.label :number %><br />
+        <%= addresses_form.text_field :number %>
+</div>
+  <% end %>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Submit", class: "btn btn-primary"  %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+<%# uncomment this if you want the login button to show %>
+<%# <%= render "devise/shared/links" %> 
+</div>
+</div>

@@ -1,11 +1,32 @@
+<form>
+
+<div class="row">
+
+<div class="col-8 offset-4">
+
+<h2>Add A Product</h2>
+
 <%= form_with model: listing, local: true do |form|  %>
-<%= form.label :name %>
+<div>
+<%= form.label :name %><br />
 <%= form.text_field :name %>
-<%= form.label :category %>
+</div>
+<div>
+<%= form.label :category %><br />
 <%= form.text_field :category %>
-<%= form.label :description %>
+</div>
+<div>
+<%= form.label :description %><br />
 <%= form.text_area :description%>
-<%= form.label :price %>
+</div>
+<div>
+<%= form.label :price %><br />
 <%= form.number_field :price, min: 1.00, step: 0.05 %>
-<%= form.submit 'Add Product'  %>
+</div>
+<div>
+<%= form.submit 'Add Product'  %><br />
 <% end %>
+</div>
+</div>
+</div>
+</form>

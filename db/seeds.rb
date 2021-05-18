@@ -49,7 +49,7 @@ user2 = User.create(username: 'user2',
    end
 
 
-user1.addresses.create(
+user2.addresses.create(
  street: 'fake2',
  number: 22,
  postcode: 3123,

@@ -1,9 +1,9 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
-  before_action :set_listing, only: [:show, :edit, :update, :destroy ]
+  before_action :set_listing, only: [:show, :edit, :update, :destroy,]
   
   def index
-    @listings = Listing.all.limit(6)
+    @listings = Listing.all.sample(6)
     end
 
   def new
@@ -49,7 +49,7 @@ class ListingsController < ApplicationController
     private 
 
   def listing_params
-    params.require(:listing).permit(:name, :description, :price, :category)
+    params.require(:listing).permit(:name, :description, :price, :category, :images)
   end
 
   def set_listing

@@ -4,7 +4,10 @@
 </div>
 
 <div class="container-fluid">
-<%= image_tag 'vera4.jpg', width: '50%', alt: 'user selling item image', class: 'rounded mx-auto d-block' %>
+<%# <%= image_tag '@listing.images.first', width: '50%', alt: 'user selling item image', class: 'rounded mx-auto d-block' %> 
+<%= @listing.images.attached? ? (image_tag @listing.images.first, width: '50%',
+ alt:'image here alt text'):(image_tag 'placeholder.jpg', width: '50%' )%>
+
 <p class="text-center"><%= @listing.name  %></p>
 <p class="text-center"><%= @listing.description  %></p>
 <p class="text-center"><%= @listing.category  %></p>

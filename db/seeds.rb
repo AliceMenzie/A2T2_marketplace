@@ -16,7 +16,7 @@ user1 = User.create(username: 'Vera444',
                     email: 'test@test.com',
                     password: 'password')
 
-4.times do
+2.times do
   user1.listings.create(
     name: 'Face Masks',
     description: 'Pack of 5 handmade facemasks',

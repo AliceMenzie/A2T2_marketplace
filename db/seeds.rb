@@ -12,48 +12,46 @@ User.destroy_all
 puts 'Seeding started'
 puts 'Creating DB'
 
-user1 = User.create(username: 'test',
-     email:'test@test.com',
-    password:'password')
+user1 = User.create(username: 'Vera444',
+                    email: 'test@test.com',
+                    password: 'password')
 
 4.times do
-        user1.listings.create(
-        name: 'test',
-        description:'test description',
-        price: rand(20... 2_000.0),
-        category: 'test',
-        status: 1
-        )
-      end
-
+  user1.listings.create(
+    name: 'Face Masks',
+    description: 'Pack of 5 handmade facemasks',
+    price: rand(10...100.0),
+    category: 'Clothing',
+    status: 1
+  )
+end
 
 user1.addresses.create(
-    street: 'fake',
-    number: 22,
-    postcode: 3000,
-    state: 'VIC'
+  street: 'fake',
+  number: 22,
+  postcode: 3000,
+  state: 'VIC'
 )
 
-user2 = User.create(username: 'user2',
-  email:'user2@test.com',
- password:'password')
+user2 = User.create(username: 'reg222',
+                    email: 'test2@test.com',
+                    password: 'password')
 
-4.times do
-     user1.listings.create(
-     name: 'test2',
-     description:'test description2',
-     price: rand(20... 2_000.0),
-     category: 'test',
-     status: 1
-     )
-   end
-
+2.times do
+  user2.listings.create(
+    name: 'Button Down Shirt',
+    description: 'Pack of Two Mens Button down Shirts, Large',
+    price: rand(40.0...50.0),
+    category: 'Clothing',
+    status: 1
+  )
+end
 
 user2.addresses.create(
- street: 'fake2',
- number: 22,
- postcode: 3123,
- state: 'VIC'
+  street: 'fake2',
+  number: 22,
+  postcode: 3123,
+  state: 'VIC'
 )
 
 puts 'Seeding complete'

@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy ]
   
   def index
-    @listings = Listing.all
+    @listings = Listing.all.limit(6)
     end
 
   def new

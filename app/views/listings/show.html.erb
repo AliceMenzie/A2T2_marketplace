@@ -1,7 +1,14 @@
-<h1>Marketplace: full listing</h1>
-<p><%= @listing.name  %></p>
-<p><%= @listing.description  %></p>
-<p><%= @listing.category  %></p>
-<p><%= @listing.price  %></p>
+
+<div class="center jumbotron">
+<h1 class="text-center">Marketplace: full listing</h1>
+</div>
+
+<div class="container-fluid">
+<%= image_tag 'vera4.jpg', width: '50%', alt: 'user selling item image', class: 'rounded mx-auto d-block' %>
+<p class="text-center"><%= @listing.name  %></p>
+<p class="text-center"><%= @listing.description  %></p>
+<p class="text-center"><%= @listing.category  %></p>
+<p class="text-center"><%= @listing.price  %></p>
 <%= link_to 'Update', edit_listing_path(@listing) %>
 <%= link_to 'Destroy', listing_path(@listing), method: :delete, data:{confirm: 'Are you sure you want to delete listing?'}  %>
+<div class="container-fluid">

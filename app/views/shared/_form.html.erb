@@ -1,38 +1,61 @@
 
+<%# <div class="row">
+
+<div class="col-8 offset-4"> %>
+ ,  
+
 <%# the form tag is messing with my routing  %>
-<%# <form> %>
+
+<div class="d-flex justify-content-center">
+ 
+
+<div class= "card p-3 bg-light">
+
+<%= form_with model: listing, local: true do |form|%>
 
 <div class="row">
-
-<div class="col-8 offset-4">
-
-<h2>Add A Product</h2>
-
-<%= form_with model: listing, local: true do |form|  %>
-<div>
+<div class="col-sm-12">
 <%= form.label :name %><br />
-<%= form.text_field :name %>
+<%= form.text_field :name, class: 'form-control form-control input-lg'  %>
 </div>
-<div>
+</div>
+
+<div class="row">
+<div class="col-sm-12">
 <%= form.label :category %><br />
-<%= form.text_field :category %>
+<%= form.text_field :category, class: 'form-control form-control input-lg' %>
 </div>
-<div>
+</div>
+
+<div class="row">
+<div class="col-sm-12">
 <%= form.label :description %><br />
-<%= form.text_area :description%>
+<%= form.text_area :description, class: 'form-control form-control input-md'%>
 </div>
-<div>
-<%= form.label :price %><br />
-<%= form.number_field :price, min: 1.00, step: 0.05 %>
 </div>
-<div>
-<div>
-<%= form.label :images %>
+
+<div class="row">
+<div class="col-sm-12">
+<%= form.label :price %><br/>
+<%= form.number_field :price, min: 1.00, step: 0.05, class: 'form-control form-control input-lg'  %>
+</div>
+</div>
+
+<div class="row">
+<div class = "col-lg-12 ">
+<%= form.label :images %><br />
 <%= form.file_field :images, accept:'image/png, image/jpeg, image/jpg' %>
 </div>
-<%= form.submit 'Add Product'  %><br />
+</div>
+
+<div class="row">
+<div class = "col-sm-12"><br />
+<%= form.submit 'Add Product', class: 'btn btn-outline-dark btn-block'%>
 <% end %>
 </div>
 </div>
+
+
 </div>
-<%# </form> %>
+</div>
+

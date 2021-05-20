@@ -3,17 +3,20 @@
 <h1 class="text-center">Marketplace: full listing</h1>
 </div>
 
-<div class="container-fluid">
+
 <%# <%= image_tag '@listing.images.first', width: '50%', alt: 'user selling item image', class: 'rounded mx-auto d-block' %> 
 <%= @listing.images.attached? ? (image_tag @listing.images.first, width: '50%',
- alt:'image here alt text'):(image_tag 'placeholder.jpg', width: '50%' )%>
-<p class="text-center"><%= @listing.name  %></p>
-<p class="text-center"><%= @listing.description  %></p>
-<p class="text-center"><%= @listing.category  %></p>
-<p class="text-center"><%= @listing.price  %></p>
+ alt:'image here alt text', class:'rounded mx-auto d-block'):(image_tag 'placeholder.jpg', width: '50%', class:'rounded mx-auto d-block')%>
+ <div class="d-flex justify-content-center">
+<div class= "card p-3 m-3">
+<p class="text-center">Product: <%= @listing.name  %></p>
+<p class="text-center">Desctription: <%= @listing.description  %></p>
+<p class="text-center">Category: <%= @listing.category  %></p>
+<p class="text-center">Price: <%= @listing.price  %></p>
 <% if current_user == @listing.user %>
-<%= link_to 'Update', edit_listing_path(@listing) %>
-<%= link_to 'Destroy', listing_path(@listing), method: :delete, data:{confirm: 'Are you sure you want to delete listing?'}  %>
+<%= link_to 'Update', edit_listing_path(@listing), class: 'btn btn-outline-dark btn-block' %>
+<%= link_to 'Destroy', listing_path(@listing), method: :delete, data:{confirm: 'Are you sure you want to delete listing?'}, class: 'btn btn-outline-dark btn-block'  %>
 
 <% end %>
-<div class="container-fluid">
+</div>
+</div>

@@ -7,11 +7,13 @@
 <%# <%= image_tag '@listing.images.first', width: '50%', alt: 'user selling item image', class: 'rounded mx-auto d-block' %> 
 <%= @listing.images.attached? ? (image_tag @listing.images.first, width: '50%',
  alt:'image here alt text'):(image_tag 'placeholder.jpg', width: '50%' )%>
-
 <p class="text-center"><%= @listing.name  %></p>
 <p class="text-center"><%= @listing.description  %></p>
 <p class="text-center"><%= @listing.category  %></p>
 <p class="text-center"><%= @listing.price  %></p>
+<% if current_user == @listing.user %>
 <%= link_to 'Update', edit_listing_path(@listing) %>
 <%= link_to 'Destroy', listing_path(@listing), method: :delete, data:{confirm: 'Are you sure you want to delete listing?'}  %>
+
+<% end %>
 <div class="container-fluid">

@@ -1,24 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">LM</a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to 'Home', root_path, class:'nav-link active' %>
-        </li>
-        <li class="nav-item">
-        <%= link_to 'Create New Product', new_listing_path, class: 'btn btn-outline-dark'  %>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <% if user_signed_in? %>
-        <%= current_user.username %>
-        <%= link_to 'Sign Out', destroy_user_session_path,method: :delete, class: 'btn btn-outline-secondary'  %>
+
+<nav class="navbar navbar-expand-md bg-light navbar-light">
+  <!-- Brand -->
+  <%= link_to 'LM', root_path, class:'nav-link active navbar-brand' %>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <%= link_to 'Create New Product', new_listing_path, class: 'btn btn-outline-dark m-2'  %>
+      </li>
+      <li class="nav-item">
+        <% if user_signed_in? %>
+        <%= link_to 'Sign Out', destroy_user_session_path,method: :delete, class: 'btn btn-outline-dark m-2 navbar-right'  %>
       <% else %>
-        <%= link_to 'Sign In', new_user_session_path, class:'btn btn-light' %>
-        <%= link_to 'Sign Up', new_user_registration_path, class:'btn btn-light' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Sign In', new_user_session_path, class:'btn btn-outline-dark m-2 navbar-right' %>
+      </li>
+      <li>
+      <%= link_to 'Sign Up', new_user_registration_path, class:'btn btn-outline-dark m-2 mr-auto' %>
       <% end %>
-    </div>
+      
+      </li>
+    </ul>
   </div>
+  
 </nav>

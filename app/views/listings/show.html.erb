@@ -16,7 +16,9 @@
 <% if current_user == @listing.user %>
 <%= link_to 'Update', edit_listing_path(@listing), class: 'btn btn-outline-dark btn-block' %>
 <%= link_to 'Destroy', listing_path(@listing), method: :delete, data:{confirm: 'Are you sure you want to delete listing?'}, class: 'btn btn-outline-dark btn-block'  %>
-<%= button_tag 'Buy', class: 'btn btn-outline-warning btn-block' %>
 <% end %>
+<%= button_tag 'Buy',data: {stripe:'payment', session_id: @session_id, public_key: Rails.application.credentials.dig(:stripe, :public_key)}, id:'stripe-button', class: 'btn btn-outline-warning btn-block' %>
+<%= javascript_include_tag "https://js.stripe.com/v3/" %>
+<%= javascript_pack_tag 'stripe' %>
 </div>
 </div>

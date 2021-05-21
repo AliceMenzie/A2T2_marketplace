@@ -23,8 +23,6 @@ class ListingsController < ApplicationController
 
   def edit; end
 
-  
-
   def update
     if @listing.update(listing_params)
       redirect_to @listing
@@ -33,11 +31,33 @@ class ListingsController < ApplicationController
     end
   end
 
-  def show
-    @listing = Listing.find(params[:id])
-  end
+  # def show
+  #   # @listing = Listing.find(params[:id])
 
- 
+  # end
+  def show
+    stripe_session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      client_reference_id: current_user.id,
+      customer_email: current_user.email,
+      line_items: [{
+        amount: (@listing.price * 100).to_i,
+        name: @listing.name,
+        description: @listing.description,
+        currency: 'aud',
+        quantity: 1
+      }],
+      payment_intent_data: {
+        metadata: {
+          listing_id: @listing.id,
+          user_id: current_user.id
+        }
+      },
+      success_url: "#{root_url}purchases/success?listingId=#{@listing.id}",
+      cancel_url: "#{root_url}listings"
+    )
+    @session_id = stripe_session.id
+  end
 
   def destroy
     @listing.destroy
@@ -58,8 +78,6 @@ class ListingsController < ApplicationController
     flash[:alert] = 'You do not have permissions to access this page'
     redirect_to listings_path
   end
-
-
 
   def set_listing
     @listing = Listing.find(params[:id])

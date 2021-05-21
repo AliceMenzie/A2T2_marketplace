@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   has_many :addresses, dependent: :destroy
   has_many :listings, dependent: :destroy
-  has_many :purchases, dependant: :destroy 
+  has_many :purchases, dependent: :destroy 
   # below is code relating to nested address form 
   accepts_nested_attributes_for :addresses
 end

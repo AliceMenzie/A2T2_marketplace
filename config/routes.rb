@@ -3,10 +3,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
     # sessions: 'users/registrations'
   }
-   root to: 'listings#index'
-   resources :listings
-   get '/purchases/success', to: 'purchases#success'
+  root to: 'listings#index'
+  resources :listings
+  get '/purchases/success', to: 'purchases#success'
 end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
+# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 # end

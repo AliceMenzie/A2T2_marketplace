@@ -8,14 +8,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     super
   end
-#   def new
-#     # super
-#     build_resource({})
-#     yield resource if block_given?
-#     resource.addresses.build
-#     respond_with resource
-#   end
-# end
+  #   def new
+  #     # super
+  #     build_resource({})
+  #     yield resource if block_given?
+  #     resource.addresses.build
+  #     respond_with resource
+  #   end
+  # end
 
   # POST /resource
   # def create

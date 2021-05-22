@@ -8,20 +8,15 @@ class ListingsController < ApplicationController
       @listings = []
       current_user.addresses.each do |cupc|
         current_user_post_code = cupc.postcode
-        search_listings = Listing.active.each do |listing|
+        Listing.active.each do |listing|
           listing.user.addresses.each do |pc|
-
-            if pc.postcode == current_user_post_code
-              @listings << listing
-            end
+            @listings << listing if pc.postcode == current_user_post_code
           end
-          
         end
-        
       end
-      return @listings
+      @listings
     else
-      return @listings = Listing.active.sample(6)
+      @listings = Listing.active.sample(6)
     end
   end
 

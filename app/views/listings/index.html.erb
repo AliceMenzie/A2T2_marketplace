@@ -6,8 +6,15 @@
 <%# style="background:transparent !important", %>
 <div class="center jumbotron">
 <% if user_signed_in? %>
+<%=current_user.id  %>
 <h1 class="text-center">Welcome <%= current_user.username %></h1> <br/>  
-<h4 class="text-center">This is your Local Marketplace!</h4>
+<% @address = current_user.addresses %>
+<h4 class="text-center">This is your Local Marketplace! <% @address.each do |current_user_postcode| %>
+
+<%= current_user_postcode.postcode  %>
+
+<% end  %>
+</h4>
 <% else %>
 <h1 class="text-center">Sign up, to your local Marketplace! </h1>
 <% end %>
@@ -36,6 +43,15 @@
                 </p>
                 <p class="text-center"><%=number_to_currency(listing.price) %>
                 </p> 
+                </p>
+                <p class="text-center"> listing id: <%=listing.id %>
+                </p>
+                <p class="text-center"> user who listed: <%=listing.id %>
+                </p>
+                <p> Posted by: <%= listing.user.username %></p>
+                <% listing.user.addresses.each do |listing_user_postcode| %>
+                <p><%=listing_user_postcode.postcode  %></p>
+              <% end %>
               </div>
             </p> 
           </div>

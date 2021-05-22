@@ -4,7 +4,25 @@ class ListingsController < ApplicationController
   before_action :authorize_listing, only: %i[edit update destroy]
 
   def index
-    @listings = Listing.active.sample(6)
+    if user_signed_in?
+      @listings = []
+      current_user.addresses.each do |cupc|
+        current_user_post_code = cupc.postcode
+        search_listings = Listing.active.each do |listing|
+          listing.user.addresses.each do |pc|
+
+            if pc.postcode == current_user_post_code
+              @listings << listing
+            end
+          end
+          
+        end
+        
+      end
+      return @listings
+    else
+      return @listings = Listing.active.sample(6)
+    end
   end
 
   def new

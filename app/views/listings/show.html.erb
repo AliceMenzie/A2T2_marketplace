@@ -13,6 +13,7 @@
 <p class="text-center">Desctription: <%= @listing.description  %></p>
 <p class="text-center">Category: <%= @listing.category  %></p>
 <p class="text-center">Price: <%= @listing.price  %></p>
+<p><p> Posted by: <%= @listing.user.username %></p></p>
 <% if current_user == @listing.user %>
 <%= link_to 'Update', edit_listing_path(@listing), class: 'btn btn-outline-dark btn-block' %>
 <%= link_to 'Destroy', listing_path(@listing), method: :delete, data:{confirm: 'Are you sure you want to delete listing?'}, class: 'btn btn-outline-dark btn-block'  %>

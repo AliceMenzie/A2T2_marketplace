@@ -50,31 +50,31 @@ class ListingsController < ApplicationController
   # end
   def show
     stripe_session = Stripe::Checkout::Session.create(
-      payment_method_types: ['card'],
+      payment_method_types: ["card"],
       client_reference_id: current_user.id,
       customer_email: current_user.email,
       line_items: [{
-        amount: (@listing.price * 100).to_i,
-        name: @listing.name,
-        description: @listing.description,
-        currency: 'aud',
-        quantity: 1
-      }],
+                     amount: (@listing.price * 100).to_i,
+                     name: @listing.name,
+                     description: @listing.description,
+                     currency: "aud",
+                     quantity: 1,
+                   }],
       payment_intent_data: {
         metadata: {
           listing_id: @listing.id,
-          user_id: current_user.id
-        }
+          user_id: current_user.id,
+        },
       },
       success_url: "#{root_url}purchases/success?listingId=#{@listing.id}",
-      cancel_url: "#{root_url}listings"
+      cancel_url: "#{root_url}listings",
     )
     @session_id = stripe_session.id
   end
 
   def destroy
     @listing.destroy
-    flash[:alert] = 'Deleted Listing'
+    flash[:alert] = "Deleted Listing"
     redirect_to listings_path
   end
 
@@ -88,7 +88,7 @@ class ListingsController < ApplicationController
     @listing = current_user.listings.find_by_id(params[:id])
     return if @listing
 
-    flash[:alert] = 'You do not have permissions to access this page'
+    flash[:alert] = "You do not have permissions to access this page"
     redirect_to listings_path
   end
 

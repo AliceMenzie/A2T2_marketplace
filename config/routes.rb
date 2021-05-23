@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root to: 'listings#index'
   resources :listings
   get '/purchases/success', to: 'purchases#success'
+  # webhook routing
+  post 'purchases/webhook', to: 'purchases#webhook'
 end
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 

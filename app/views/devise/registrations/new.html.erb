@@ -1,6 +1,6 @@
 
 <div class="center jumbotron">
-<h2 class="text-center">Sign up</h2>
+<h1 class="text-center">Sign up</h1>
 </div>
 <div class="d-flex justify-content-center">
  
@@ -10,12 +10,12 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-<%# ## this is added with application controller for username   %>
+<% # ## this is added with application controller for username %>
   <div class="field">
   <div class="row">
 <div class = "col-sm-12"><br />
     <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username", class: 'form-control form-control input-lg' %>
+    <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control form-control input-lg" %>
   </div>
 </div>
 </div>
@@ -23,7 +23,7 @@
   <div class="row">
 <div class = "col-sm-12"><br />
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control form-control input-lg' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control input-lg" %>
   </div>
 </div>
 </div>
@@ -34,17 +34,17 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control form-control input-lg' %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control form-control input-lg" %>
   </div>
 </div>
 </div>
  <div class="row">
 <div class = "col-sm-12"><br />
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control form-control input-lg' %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control input-lg" %>
   </div>
   </div>
-  <%# resource.new this is probably not best place for this try to put it in the controllers%>
+  <% # resource.new this is probably not best place for this try to put it in the controllers %>
    <div class="row">
 <div class = "col-sm-12"><br />
   <h4>Address</h4>
@@ -56,7 +56,7 @@
 <div class="row">
 <div class = "col-sm-12"><br />
         <%= addresses_form.label :state %><br />
-        <%= addresses_form.text_field :state, class: 'form-control form-control input-lg' %>
+        <%= addresses_form.text_field :state, class: "form-control form-control input-lg" %>
 </div>
 </div>
 </div>
@@ -64,7 +64,7 @@
 <div class="row">
 <div class = "col-sm-12"><br />
         <%= addresses_form.label :postcode %><br />
-        <%= addresses_form.text_field :postcode, class: 'form-control form-control input-lg' %>
+        <%= addresses_form.text_field :postcode, class: "form-control form-control input-lg" %>
 </div>
 </div>
 </div>
@@ -72,7 +72,7 @@
 <div class="row">
 <div class = "col-sm-12"><br />
 				<%= addresses_form.label :street %><br />
-        <%= addresses_form.text_field :street, class: 'form-control form-control input-lg' %>
+        <%= addresses_form.text_field :street, class: "form-control form-control input-lg" %>
 </div>
 </div>
 </div>
@@ -80,7 +80,7 @@
 <div class="row">
 <div class = "col-sm-12"><br />
 				<%= addresses_form.label :number %><br />
-        <%= addresses_form.text_field :number, class: 'form-control form-control input-lg' %>
+        <%= addresses_form.text_field :number, class: "form-control form-control input-lg" %>
 
   <% end %>
 </div>
@@ -89,14 +89,14 @@
   <div class="actions">
   <div class="row">
 <div class = "col-sm-12"><br />
-    <%= f.submit "Submit", class: "btn btn-outline-dark btn-block"  %>
+    <%= f.submit "Submit", class: "btn btn-outline-dark btn-block" %>
   </div>
   </div>
 </div>
 <% end %>
 
 
-<%# uncomment this if you want the login button to show %>
-<%# <%= render "devise/shared/links" %> 
+<% # uncomment this if you want the login button to show %>
+<% # <%= render "devise/shared/links" %> 
 </div>
 </div>

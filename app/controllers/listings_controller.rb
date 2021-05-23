@@ -49,27 +49,32 @@ class ListingsController < ApplicationController
 
   # end
   def show
-    stripe_session = Stripe::Checkout::Session.create(
-      payment_method_types: ["card"],
-      client_reference_id: current_user.id,
-      customer_email: current_user.email,
-      line_items: [{
-                     amount: (@listing.price * 100).to_i,
-                     name: @listing.name,
-                     description: @listing.description,
-                     currency: "aud",
-                     quantity: 1,
-                   }],
-      payment_intent_data: {
-        metadata: {
-          listing_id: @listing.id,
-          user_id: current_user.id,
+    if user_signed_in?
+      stripe_session = Stripe::Checkout::Session.create(
+        payment_method_types: ["card"],
+        client_reference_id: current_user ? current_user.id : nil,
+        customer_email: current_user ? current_user.email : nil,
+        line_items: [{
+          amount: (@listing.price * 100).to_i,
+          name: @listing.name,
+          description: @listing.description,
+          currency: "aud",
+          quantity: 1,
+        }],
+        payment_intent_data: {
+          metadata: {
+            listing_id: @listing.id,
+            user_id: current_user ? current_user.id : nil,
+          },
         },
-      },
-      success_url: "#{root_url}purchases/success?listingId=#{@listing.id}",
-      cancel_url: "#{root_url}listings",
-    )
-    @session_id = stripe_session.id
+        success_url: "#{root_url}purchases/success?listingId=#{@listing.id}",
+        cancel_url: "#{root_url}listings",
+      )
+      @session_id = stripe_session.id
+    else
+      ######## puts in a message
+      flash[:alert] = "Sign up to purchase today!"
+    end
   end
 
   def destroy

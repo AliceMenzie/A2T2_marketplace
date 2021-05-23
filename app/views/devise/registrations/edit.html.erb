@@ -45,8 +45,8 @@
      <div class="row">
 <div class = "col-sm-12"><br />
   <h4>Address</h4>
-  <% # <% resource.addresses.new %> 
-  <%= f.fields_for :addresses do |addresses_form| %>
+  <% # <% resource.addresses.new %>
+  <%= f.fields_for :addresses, Address.new do |addresses_form| %>
   </div>
 </div>
 <div class="field">

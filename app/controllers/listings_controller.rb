@@ -3,10 +3,10 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: %i[show]
   before_action :authorize_listing, only: %i[edit update destroy]
 
+  def list
+    @my_listings = current_user.listings
+  end
 
-  def list 
-
-  end 
   def index
     if user_signed_in?
       @listings = []

@@ -1,0 +1,24 @@
+<div class="center jumbotron">
+<h1 class="text-center">My Addresses</h1>
+</div>
+
+<h3>New Address Added:</h3>
+
+
+
+<% # ---------CARD START-------- %>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <h6 class="card-subtitle mb-2 text-muted"></h6>
+    <p class="card-text">
+      <%= @address.number %> <%= @address.street %> <br/>
+      <%= @address.postcode %> <%= @address.state %>
+    </p>
+    
+    <%= link_to "Edit", edit_address_path(@address), class: "btn btn-outline-dark btn-block" %>
+    <%= link_to "Destroy", address_path(@address), method: :delete, data: { confirm: "Are you sure you want to delete listing?" }, class: "btn btn-outline-dark " %>
+    
+  </div>
+</div>

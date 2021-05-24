@@ -1,1 +1,31 @@
-<h1></h1>
+<div class="center jumbotron">
+<h1 class="text-center">My Addresses</h1>
+</div>
+
+ 
+ <%= link_to "Create New Address", new_address_path, class: "btn btn-outline-dark m-2" %>
+ 
+
+
+
+
+<% # ---------CARD START-------- %>
+<% @addresses.each_with_index do |address, index| %> 
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= index + 1 %></h6>
+    <p class="card-text">
+      <%= address.number %> <%= address.street %> <br/>
+      <%= address.postcode %> <%= address.state %>
+    </p>
+    
+    <%= link_to "Edit", edit_address_path(address), class: "btn btn-outline-dark btn-block" %>
+    <%= link_to "Destroy", address_path(address), method: :delete, data: { confirm: "Are you sure you want to delete listing?" }, class: "btn btn-outline-dark " %>
+    
+  </div>
+</div>
+<% end %>
+
+
+

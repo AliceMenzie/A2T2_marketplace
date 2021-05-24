@@ -40,46 +40,6 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
-  <% # ADDRESS FORM START %>
-
-     <div class="row">
-<div class = "col-sm-12"><br />
-  <h4>Address</h4>
-  <% # <% resource.addresses.new %>
-  <%= f.fields_for :addresses, Address.new do |addresses_form| %>
-  </div>
-</div>
-<div class="field">
-<div class="row">
-<div class = "col-sm-12"><br />
-        <%= addresses_form.label :state %><br />
-        <%= addresses_form.text_field :state, class: "form-control form-control input-lg" %>
-</div>
-</div>
-</div>
-<div class="field">
-<div class="row">
-<div class = "col-sm-12"><br />
-        <%= addresses_form.label :postcode %><br />
-        <%= addresses_form.text_field :postcode, class: "form-control form-control input-lg" %>
-</div>
-</div>
-</div>
-<div class="field">
-<div class="row">
-<div class = "col-sm-12"><br />
-				<%= addresses_form.label :street %><br />
-        <%= addresses_form.text_field :street, class: "form-control form-control input-lg" %>
-</div>
-</div>
-</div>
-<div class="field">
-<div class="row">
-<div class = "col-sm-12"><br />
-				<%= addresses_form.label :number %><br />
-        <%= addresses_form.text_field :number, class: "form-control form-control input-lg" %>
-
-  <% end %>
 
   <div class="actions">
     <%= f.submit "Update" %>

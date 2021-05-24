@@ -22,7 +22,8 @@
 <div class="row">
 <div class="col-sm-12">
 <%= form.label :category %><br />
-<%= form.text_field :category, class: 'form-control form-control input-lg' %>
+<%# <%= form.text_field :category, class: 'form-control form-control input-lg' %> 
+<%= form.select :category, ['Clothing & Shoes ', 'Sport & Exercise', 'Art & Collectables', 'Vintage', 'Home', 'Toys', 'Other'], {}, {:class => 'form-control'}%>
 </div>
 </div>
 

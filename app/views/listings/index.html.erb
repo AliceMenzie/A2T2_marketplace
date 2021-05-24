@@ -34,34 +34,25 @@
             </div>
           </div>
           <div class="card-body" >
-            <h5 class="card-title text-center"><%= listing.name %></h5>
+            <h5 class="card-title text-center display-4"><%= listing.name %></h5>
             <p class="card-text">
               <div class="col"> 
-                <p class="text-center"><%= listing.description %>
-                </p>
                 <p class="text-center"><%= listing.category %>
                 </p>
-                <p class="text-center"><%= number_to_currency(listing.price) %>
-                </p> 
+                <p class="text-center"><%= listing.description %>
                 </p>
-                <p class="text-center"> listing id: <%= listing.id %>
-                </p>
-                <p class="text-center"> user who listed: <%= listing.id %>
-                </p>
-                <p> Posted by: <%= listing.user.username %></p>
-                <% listing.user.addresses.each do |listing_user_postcode| %>
-                <p><%= listing_user_postcode.postcode %></p>
-              <% end %>
+                <h4><%= number_to_currency(listing.price) %>
+                </h4>
+                <h6> Posted by: <%= listing.user.username %></h6>
+                
               </div>
             </p> 
           </div>
-          
-
-          <%= link_to "View Product", listing_path(listing), class: "btn btn-outline-dark btn-block" %>
+          <%= link_to "View Product", listing_path(listing), class: "btn btn-outline-dark" %>
         </div>
       </div>
     <% end %>
-    <% # <div class="w-100"></div> %>
+    
   </div>
 
 <% # template end %>

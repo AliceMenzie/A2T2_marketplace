@@ -4,8 +4,6 @@
 </div>
 
 
-<% # <%= image_tag '@listing.images.first', width: '50%', alt: 'user selling item image', class: 'rounded mx-auto d-block' %> 
-
 
 <div class="container">
 <div class="row"> 
@@ -13,23 +11,20 @@
 
 
 
-<%# <div class="col">
-        <div class="card mb-5 mt-3" style="width: 30rem;" class="well block margin-bottom-six"> %>
-
-
 
  <div class="d-flex justify-content-center">
 <div class= "card mb-5 mt-3">
 <p> <%= @listing.images.attached? ? (image_tag @listing.images.first, width: "100%",
-                                                                     alt: "image here alt text", class: "rounded mx-auto d-block") : (image_tag "placeholder.jpg", width: "100%", class: "rounded mx-auto d-block") %> </p>
+                                                                      alt: "image here alt text", class: "rounded mx-auto d-block") : (image_tag "placeholder.jpg", width: "100%", class: "rounded mx-auto d-block") %> </p>
 
 
 <div class="card-body" >
-<p class="text-center">Product: <%= @listing.name %></p>
-<p class="text-center">Desctription: <%= @listing.description %></p>
-<p class="text-center">Category: <%= @listing.category %></p>
-<p class="text-center">Price: <%= @listing.price %></p>
-<p><p> Posted by: <%= @listing.user.username %></p></p>
+<h5 class="text-center display-4"><%= @listing.name %></h5>
+<p class="text-center"> <%= @listing.category %></p>
+<p class="text-center"> <%= @listing.description %></p>
+
+<h4><%= number_to_currency(@listing.price) %></h4>
+<h6> Posted by: <%= @listing.user.username %></h6>
 <% if current_user == @listing.user %>
 <%= link_to "Update", edit_listing_path(@listing), class: "btn btn-outline-dark btn-block" %>
 <%= link_to "Destroy", listing_path(@listing), method: :delete, data: { confirm: "Are you sure you want to delete listing?" }, class: "btn btn-outline-dark btn-block" %>

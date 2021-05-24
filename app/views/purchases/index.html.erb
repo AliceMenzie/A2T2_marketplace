@@ -1,0 +1,14 @@
+<h1>test</h1>
+
+<%= @purchases.each do |p| %>
+
+<%= p.id %>
+
+<%= p.user_id %>
+
+<%= p.listing.name %>
+
+<%= p.user.username %>
+<%= link_to "View", p.receipt_url %>
+
+<% end %>

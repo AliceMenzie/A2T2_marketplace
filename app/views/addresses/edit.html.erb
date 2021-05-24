@@ -1,0 +1,6 @@
+<div class="center jumbotron">
+<% if user_signed_in? %>
+<% # <%=current_user.id %> 
+<h1 class="text-center">Edit Address <%= current_user.username %></h1> <br/>  
+<% @address = current_user.addresses %>
+<h4 class="text-center">This is your Local Marketplace! <% @address.each do |current_user_postcode| %>

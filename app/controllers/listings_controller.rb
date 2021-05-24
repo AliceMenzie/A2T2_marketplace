@@ -3,12 +3,16 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: %i[show]
   before_action :authorize_listing, only: %i[edit update destroy]
 
+
+  def list 
+
+  end 
   def index
     if user_signed_in?
       @listings = []
       current_user.addresses.each do |cupc|
         current_user_post_code = cupc.postcode
-        Listing.active.each do |listing|
+        Listing.includes(user: { addresses: [] }).each do |listing|
           listing.user.addresses.each do |pc|
             @listings << listing if pc.postcode == current_user_post_code
           end

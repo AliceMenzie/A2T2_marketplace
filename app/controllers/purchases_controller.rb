@@ -17,4 +17,9 @@ class PurchasesController < ApplicationController
     listing = Listing.find(listing_id)
     listing.update(status: "purchased")
   end
+
+  def index
+    @purchases = current_user.purchases
+
+  end
 end

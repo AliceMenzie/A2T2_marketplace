@@ -1,6 +1,11 @@
+ 
+<div class="d-flex justify-content-center">
+<div class= "card p-5 m-5 bg-light">
+ 
+ 
+ 
  <%= form_with model: @address, local: true do |addresses_form| %>
-  </div>
-</div>
+  
 <div class="field">
 <div class="row">
 <div class = "col-sm-12"><br />
@@ -30,14 +35,23 @@
 <div class = "col-sm-12"><br />
 				<%= addresses_form.label :number %><br />
         <%= addresses_form.text_field :number, class: "form-control form-control input-lg" %>
+</div>
+</div>
+</div>
 
-        <div class="row">
+<div class="row">
 <div class = "col-sm-12"><br />
-  <%= addresses_form.submit "Update", class: "btn btn-outline-dark " %>  
+  <%= addresses_form.submit "Update", class: "btn btn-outline-dark btn-block" %>  
+</div>
+</div>
  
+  <% end %>
  
- 
+
+
+ </div>
+</div>
     
 
-</div>
-  <% end %>
+
+  

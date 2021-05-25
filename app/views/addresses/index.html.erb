@@ -1,5 +1,5 @@
 <div class="center jumbotron">
-<h1 class="text-center">My Addresses</h1>
+<h1 class="text-center display-3">My Addresses</h1>
 </div>
 
  
@@ -14,7 +14,7 @@
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"></h5>
-    <h6 class="card-subtitle mb-2 text-muted"><%= index + 1 %></h6>
+    <h6 class="card-subtitle mb-2 text-muted"> <%= "# #{index + 1}" %></h6>
     <p class="card-text">
       <%= address.number %> <%= address.street %> <br/>
       <%= address.postcode %> <%= address.state %>

@@ -16,7 +16,7 @@ class ListingsController < ApplicationController
       current_user.addresses.pluck(:postcode).each do |cupc|
         # current_user_post_code = cupc.postcode
         # User.joins(:addresses).where()
-        Listing.includes(user: { addresses: [] }).each do |listing|
+        Listing.active.includes(user: { addresses: [] }).each do |listing|
           listing.user.addresses.each do |pc|
             @listings << listing if pc.postcode == cupc
           end

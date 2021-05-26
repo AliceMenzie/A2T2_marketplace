@@ -23,6 +23,5 @@ class PurchasesController < ApplicationController
     @purchases = current_user.purchases
 
     ######## puts in a message
-
   end
 end

@@ -14,13 +14,17 @@
       <li class="nav-item">
         <%= link_to "My Listings", listings_list_path, class: "nav-link" %>
       </li>
-      <li class="nav-item dropdown">
+      
+    </ul>
+    <ul class="navbar-nav mr-2">
+    <li class="nav-item dropdown ">
         <a class="nav-link dropdown-toggle btn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          My Details
+          My Details           
+
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           
-<%= link_to "My Addresses", addresses_path, class: "dropdown-item" %>
+          <%= link_to "My Addresses", addresses_path, class: "dropdown-item" %>
           <%= link_to "My Purchases", purchases_index_path, class: "dropdown-item " %>
           <%= link_to "Edit Details", edit_user_registration_path, class: "dropdown-item " %>
           <div class="dropdown-divider"></div>
@@ -39,9 +43,5 @@
       
       <% end %>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>

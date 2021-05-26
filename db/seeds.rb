@@ -31,7 +31,7 @@ user1.addresses.create(
   street: "fake",
   number: 22,
   postcode: 3000,
-  suburb: 'melbourne',
+  suburb: "melbourne",
   state: "VIC",
 )
 
@@ -53,6 +53,7 @@ user2.addresses.create(
   street: "fake2",
   number: 22,
   postcode: 3123,
+  suburb: "hawthorne east",
   state: "VIC",
 )
 

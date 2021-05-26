@@ -13,13 +13,12 @@ class ListingsController < ApplicationController
       # get all postcodes of current user
       # get all users postcodes which shared with current user
 
-      current_user.addresses.pluck(:postcode).each do |cupc|
+      current_user.addresses.pluck(:postcode).uniq.each do |cupc|
         # current_user_post_code = cupc.postcode
         # User.joins(:addresses).where()
         Listing.active.includes(user: { addresses: [] }).each do |listing|
-          listing.user.addresses.each do |pc|
-            @listings << listing if pc.postcode == cupc
-          end
+          pc = listing.user.addresses.first().postcode
+          @listings << listing if pc == cupc
         end
       end
       @listings

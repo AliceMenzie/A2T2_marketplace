@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-  before_action :authenticate_user!, only: %i[new edit]
+  before_action :authenticate_user!, only: %i[new edit index]
   before_action :set_address, only: %i[show]
   before_action :authorize_address, only: %i[edit update destroy]
 
@@ -53,7 +53,7 @@ class AddressesController < ApplicationController
     return if @address
 
     flash[:alert] = "You do not have permissions to access this page"
-    redirect_to addresses_path
+    redirect_to listings_path
   end
 
   def set_address

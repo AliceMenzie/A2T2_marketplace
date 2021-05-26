@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new edit]
+  before_action :authenticate_user!, only: %i[new edit list]
   before_action :set_listing, only: %i[show]
   before_action :authorize_listing, only: %i[edit update destroy]
 

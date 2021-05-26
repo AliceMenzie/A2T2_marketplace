@@ -1,6 +1,6 @@
 
 <div class="center jumbotron">
-<h1 class="text-center">Login</h1>
+<h1 class="text-center display-3">Login</h1>
 </div>
 
 
@@ -15,14 +15,14 @@
   <div class="row">
 <div class="col-sm-12">
     <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username", class: 'form-control form-control input-lg' %>
+    <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control form-control input-lg" %>
   </div>
 </div> 
 
   <div class="row">
 <div class="col-sm-12">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control form-control input-lg' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control input-lg" %>
   </div>
 </div> 
 
@@ -30,7 +30,7 @@
 <div class="row">
 <div class="col-sm-12">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password", class: 'form-control form-control input-lg' %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "form-control form-control input-lg" %>
 </div>
 </div> 
 
@@ -39,14 +39,14 @@
   <div class="col-sm-12">
   <% if devise_mapping.rememberable? %>
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me, class: 'form-control form-control input-lg' %>
+      <%= f.label :remember_me, class: "form-control form-control input-lg" %>
   <% end %>
   </div>
 </div> 
 
   <div class="row">
 <div class="col-sm-12">
-    <%= f.submit "Log in", class: 'btn btn-outline-dark btn-block' %>
+    <%= f.submit "Log in", class: "btn btn-outline-dark btn-block" %>
 <% end %>
 </div>
 </div> 

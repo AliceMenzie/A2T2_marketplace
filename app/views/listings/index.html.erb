@@ -9,9 +9,9 @@
 <% # <%=current_user.id %> 
 <h1 class="text-center display-3">Welcome <%= current_user.username %></h1> <br/>  
 <% @address = current_user.addresses %>
-<h4 class="text-center display-3">This is your Local Marketplace! <% @address.each do |current_user_postcode| %>
+<h4 class="text-center display-3">Marketplace of  <% @address.each do |current_user_postcode| %>
 
-<%= current_user_postcode.postcode %>
+<%= current_user_postcode.suburb %>
 
 <% end %>
 </h4>
@@ -21,7 +21,6 @@
 
 <% # <%= image_tag 'icons/bike.jpg', width: '70%',class: 'rounded mx-auto d-block' %> 
 </div>
-
 <div class="container">
   <div class="row"> 
     <% @listings.each do |listing| %>
@@ -44,16 +43,14 @@
                 <h4><%= number_to_currency(listing.price) %>
                 </h4>
                 <h6> Posted by: <%= listing.user.username %></h6>
-                
+                <h6> Located in: </h6> 
               </div>
             </p> 
+            <%= link_to "View Product", listing_path(listing), class: "btn btn-outline-dark btn btn-block" %>
           </div>
-          <%= link_to "View Product", listing_path(listing), class: "btn btn-outline-dark" %>
+          
         </div>
       </div>
     <% end %>
-    
   </div>
-
-<% # template end %>
 </div>

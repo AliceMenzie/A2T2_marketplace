@@ -5,17 +5,8 @@
 <h1 class="text-center display-3">My Listings </h1> <br/>  
 
 </div>
-
 <div class="container">
-  <div class="row"> 
-  <% if @my_listings == nil %>
-  <%= puts "You currently have no listings" %>
-  <div class="center jumbotron">
-  <h1 class="text-center display-5">You Currently Have no Listings </h1> <br/>  
-  </div>
-
-
-  <% else %>
+<div class="row"> 
     <% @my_listings.each do |listing| %>
       <div class="col">
         <div class="card mb-5 mt-3" style="width: 30rem;" class="well block margin-bottom-six">
@@ -26,7 +17,7 @@
             </div>
           </div>
           <div class="card-body" >
-            <h5 class="card-title text-center"><%= listing.name %></h5>
+            <h5 class="card-title text-center display-4"><%= listing.name %></h5>
             <p class="card-text">
               <div class="col"> 
                 <p class="text-center"><%= listing.description %>
@@ -41,18 +32,15 @@
                 <p class="text-center"> user who listed: <%= listing.id %>
                 </p>
                 <p> Posted by: <%= listing.user.username %></p>
-                <% listing.user.addresses.each do |listing_user_postcode| %>
-                <p><%= listing_user_postcode.postcode %></p>
-              <% end %>
+                <%= listing.user.addresses.first().suburb %>
               </div>
             </p> 
+            <%= link_to "View Product", listing_path(listing), class: "btn btn-outline-dark btn btn-block" %>
           </div>
-          
-
-          <%= link_to "View Product", listing_path(listing), class: "btn btn-outline-dark btn-block" %>
+           
         </div>
-      </div>
+        
+        </div>
     <% end %>
-    <% # <div class="w-100"></div> %>
-    <% end %>
+  </div>
   </div>

@@ -4,16 +4,22 @@
 
 </div>
 
-<div class="container">
-  <div class="row"> 
-      <div class="card-body" >
-<% @purchases.each do |purchase| %>
+ 
+<% @purchases.each_with_index do |purchase, index| %>
 
-<div class="card m-5">
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      
+
+  <div class="card m-3" style="width: 18rem;">
+  <p class= "m-2"><%= "# #{index + 1}" %></p>
   <div class="card-body">
     <h5 class="card-title"><%= purchase.listing.name %></h5>
     <p class="card-text">
-    <% # <%= image_tag purchase.listing.images.first, width: "40%" %><br/>   %>
+    <% # <%= image_tag purchase.listing.images.first, width: "40%" %><br/>                 %>
     $<%= purchase.listing.price %><br/>
     From: <%= purchase.listing.user.username %> 
     </p>
@@ -21,6 +27,10 @@
     
   </div>
 
+    </div>
+    
+  </div>
+</div>
 
 
 </div>
@@ -28,3 +38,6 @@
 </div>
 
 <% end %>
+
+
+

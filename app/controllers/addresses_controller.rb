@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit index]
-  before_action :set_address, only: %i[show]
+  # before_action :set_address, only: %i[show]
   before_action :authorize_address, only: %i[edit update destroy]
 
   def index
@@ -34,6 +34,8 @@ class AddressesController < ApplicationController
 
   def show
     @address = Address.find(params[:id])
+    flash[:alert] = "Address Added Successfully"
+    redirect_to addresses_path
   end
 
   def destroy
@@ -56,7 +58,7 @@ class AddressesController < ApplicationController
     redirect_to listings_path
   end
 
-  def set_address
-    @address = Address.find(params[:id])
-  end
+  # def set_address
+  #   @address = Address.find(params[:id])
+  # end
 end

@@ -31,6 +31,7 @@ user1.addresses.create(
   street: "fake",
   number: 22,
   postcode: 3000,
+  suburb: 'melbourne',
   state: "VIC",
 )
 

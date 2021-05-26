@@ -8,7 +8,7 @@
     <h5 class="card-title">Thanks for Purchasing</h5>
     <p class="card-text">
     <%= @listing.name %><br/>
-    <%= @listing.images.first %><br/>
+    <%= image_tag @listing.images.first %><br/>
     $<%= @listing.price %><br/>
     From: <%= @listing.user.username %> 
     </p>

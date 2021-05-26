@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-                       registrations: "users/registrations",
+  devise_for :users
 
-                     # sessions: 'users/registrations'
-                     }
   root to: "listings#index"
   get "/listings/list", to: "listings#list", as: "listings_list"
   resources :listings

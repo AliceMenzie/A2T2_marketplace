@@ -13,7 +13,7 @@ class ListingsController < ApplicationController
       # get all postcodes of current user
       # get all users postcodes which shared with current user
 
-      current_user.addresses.pluck(:postcode).uniq.each do |cupc|
+      current_user.addresses.includes(user: { addresses: [] }).pluck(:postcode).uniq.each do |cupc|
         # current_user_post_code = cupc.postcode
         # User.joins(:addresses).where()
         Listing.active.includes(user: { addresses: [] }).each do |listing|
@@ -62,12 +62,12 @@ class ListingsController < ApplicationController
         client_reference_id: current_user ? current_user.id : nil,
         customer_email: current_user ? current_user.email : nil,
         line_items: [{
-          amount: (@listing.price * 100).to_i,
-          name: @listing.name,
-          description: @listing.description,
-          currency: "aud",
-          quantity: 1,
-        }],
+                       amount: (@listing.price * 100).to_i,
+                       name: @listing.name,
+                       description: @listing.description,
+                       currency: "aud",
+                       quantity: 1,
+                     }],
         payment_intent_data: {
           metadata: {
             listing_id: @listing.id,

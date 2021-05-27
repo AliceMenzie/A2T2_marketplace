@@ -1,42 +1,28 @@
-
 <div class="center jumbotron">
-<h1 class="text-center display-3">Marketplace: full listing</h1>
+  <h1 class="text-center display-3">Marketplace: full listing</h1>
 </div>
-
-
-
 <div class="container">
-<div class="row"> 
-
-
-
-
-
- <div class="d-flex justify-content-center">
-<div class= "card mb-5 mt-3">
-<p> <%= @listing.images.attached? ? (image_tag @listing.images.first, width: "100%",
-                                                                      alt: "image here alt text", class: "rounded mx-auto d-block") : (image_tag "placeholder.png", width: "100%", class: "rounded mx-auto d-block") %> </p>
-
-
-<div class="card-body" >
-<h5 class="text-center display-4"><%= @listing.name %></h5>
-<p class="text-center"> <%= @listing.category %></p>
-<p class="text-center"> <%= @listing.description %></p>
-
-<h4><%= number_to_currency(@listing.price) %></h4>
-<h6> Posted by: <%= @listing.user.username %></h6>
-<% if current_user == @listing.user %>
-<%= link_to "Update", edit_listing_path(@listing), class: "btn btn-outline-dark btn-block" %>
-<%= link_to "Destroy", listing_path(@listing), method: :delete, data: { confirm: "Are you sure you want to delete listing?" }, class: "btn btn-outline-dark btn-block" %>
-<% else %>
-<%= button_tag "Buy", data: { stripe: "payment", session_id: @session_id, public_key: Rails.application.credentials.dig(:stripe, :public_key) }, id: "stripe-button", class: "btn btn-outline-warning btn-block" %>
-<%= javascript_include_tag "https://js.stripe.com/v3/" %>
-<%= javascript_pack_tag "stripe" %>
-<% end %>
-
-
-</div>
-</div>
-</div>
-</div>
+  <div class="row">
+    <div class="d-flex justify-content-center">
+      <div class="card mb-5 mt-3">
+        <p> <%= @listing.images.attached? ? (image_tag @listing.images.first, width: "100%",
+                                                                              alt: "image here alt text", class: "rounded mx-auto d-block") : (image_tag "placeholder.png", width: "100%", class: "rounded mx-auto d-block") %> </p>
+        <div class="card-body">
+          <h5 class="text-center display-4"><%= @listing.name %></h5>
+          <p class="text-center"> <%= @listing.category %></p>
+          <p class="text-center"> <%= @listing.description %></p>
+          <h4><%= number_to_currency(@listing.price) %></h4>
+          <h6> Posted by: <%= @listing.user.username %></h6>
+          <% if current_user == @listing.user %>
+            <%= link_to "Update", edit_listing_path(@listing), class: "btn btn-outline-dark btn-block" %>
+            <%= link_to "Destroy", listing_path(@listing), method: :delete, data: { confirm: "Are you sure you want to delete listing?" }, class: "btn btn-outline-dark btn-block" %>
+          <% else %>
+            <%= button_tag "Buy", data: { stripe: "payment", session_id: @session_id, public_key: Rails.application.credentials.dig(:stripe, :public_key) }, id: "stripe-button", class: "btn btn-outline-warning btn-block" %>
+            <%= javascript_include_tag "https://js.stripe.com/v3/" %>
+            <%= javascript_pack_tag "stripe" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

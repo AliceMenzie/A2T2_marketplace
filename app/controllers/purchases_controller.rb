@@ -21,7 +21,5 @@ class PurchasesController < ApplicationController
 
   def index
     @purchases = current_user.purchases
-
-    ######## puts in a message
   end
 end

@@ -1,43 +1,28 @@
 <div class="center jumbotron">
-
-<h1 class="text-center display-3">Purchase History</h1> <br/>  
-
+  <h1 class="text-center display-3">Purchase History</h1> <br/>
 </div>
-
- 
 <% @purchases.each_with_index do |purchase, index| %>
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-      
-
-  <div class="card m-3" style="width: 18rem;">
-  <p class= "m-2"><%= "# #{index + 1}" %></p>
-  <div class="card-body">
-    <h5 class="card-title"><%= purchase.listing.name %></h5>
-    <p class="card-text">
-    <%= purchase.listing.images.attached? ? (image_tag purchase.listing.images.first, width: "35%", alt: "image here alt text") : (image_tag "placeholder.png", width: "35%") %>
-    <br/>
-    $<%= purchase.listing.price %><br/>
-    From: <%= purchase.listing.user.username %> 
-    </p>
-    <%= link_to "Reciept", purchase.receipt_url %>
-    
-  </div>
-
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card m-3" style="width: 18rem;">
+          <p class="m-2"><%= "# #{index + 1}" %></p>
+          <div class="card-body">
+            <h5 class="card-title"><%= purchase.listing.name %></h5>
+            <p class="card-text">
+              <%= purchase.listing.images.attached? ? (image_tag purchase.listing.images.first, width: "35%", alt: "image here alt text") : (image_tag "placeholder.png", width: "35%") %>
+              <br/>
+              $<%= purchase.listing.price %><br/>
+              From: <%= purchase.listing.user.username %>
+            </p>
+            <%= link_to "Reciept", purchase.receipt_url %>
+          </div>
+        </div>
+      </div>
     </div>
-    
   </div>
-</div>
-
-
-</div>
-</div>
-</div>
-
+  </div>
+  </div>
 <% end %>
 
 

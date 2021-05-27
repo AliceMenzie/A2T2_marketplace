@@ -1,66 +1,53 @@
- 
 <div class="d-flex justify-content-center">
-<div class= "card p-5 m-5 bg-light">
- 
- 
- 
- <%= form_with model: @address, local: true do |addresses_form| %>
-
-<div class="field">
-<div class="row">
-<div class = "col-sm-12"><br />
-				<%= addresses_form.label :number %><br />
-        <%= addresses_form.text_field :number, class: "form-control form-control input-lg" %>
-</div>
-</div>
-</div> 
-  
-<div class="field">
-<div class="row">
-<div class = "col-sm-12"><br />
-        <%= addresses_form.label :street %><br />
-        <%= addresses_form.text_field :street, class: "form-control form-control input-lg" %>
-</div>
-</div>
-</div>
-<div class="field">
-<div class="row">
-<div class = "col-sm-12"><br />
-        <%= addresses_form.label :suburb %><br />
-        <%= addresses_form.text_field :suburb, class: "form-control form-control input-lg" %>
-</div>
-</div>
-</div>
-<div class="field">
-<div class="row">
-<div class = "col-sm-12"><br />
-				<%= addresses_form.label :postcode %><br />
-        <%= addresses_form.text_field :postcode, class: "form-control form-control input-lg" %>
-</div>
-</div>
-</div>
-<div class="field">
-<div class="row">
-<div class = "col-sm-12"><br />
-				<%= addresses_form.label :state %><br />
-        <%= addresses_form.text_field :state, class: "form-control form-control input-lg" %>
-</div>
-</div>
-</div>
-
-
-
-<div class="row">
-<div class = "col-sm-12"><br />
-  <%= addresses_form.submit "Submit", class: "btn btn-outline-dark btn-block" %>  
-</div>
-</div>
- 
-  <% end %>
- 
-
-
- </div>
+  <div class="card p-5 m-5 bg-light">
+    <%= form_with model: @address, local: true do |addresses_form| %>
+      <div class="field">
+        <div class="row">
+          <div class="col-sm-12"><br/>
+            <%= addresses_form.label :number %><br/>
+            <%= addresses_form.text_field :number, class: "form-control form-control input-lg" %>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="row">
+          <div class="col-sm-12"><br/>
+            <%= addresses_form.label :street %><br/>
+            <%= addresses_form.text_field :street, class: "form-control form-control input-lg" %>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="row">
+          <div class="col-sm-12"><br/>
+            <%= addresses_form.label :suburb %><br/>
+            <%= addresses_form.text_field :suburb, class: "form-control form-control input-lg" %>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="row">
+          <div class="col-sm-12"><br/>
+            <%= addresses_form.label :postcode %><br/>
+            <%= addresses_form.text_field :postcode, class: "form-control form-control input-lg" %>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="row">
+          <div class="col-sm-12"><br/>
+            <%= addresses_form.label :state %><br/>
+            <%= addresses_form.text_field :state, class: "form-control form-control input-lg" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12"><br/>
+          <%= addresses_form.submit "Submit", class: "btn btn-outline-dark btn-block" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
     
 

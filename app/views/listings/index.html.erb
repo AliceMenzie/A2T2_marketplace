@@ -1,8 +1,8 @@
 <div class="center jumbotron">
   <% if user_signed_in? %>
     <h1 class="text-center display-3">Welcome <%= current_user.username %></h1> <br/>
-    <% @address = current_user.addresses %>
-    <h4 class="text-center display-3">Marketplace of
+    
+    <h4 class="text-center display-3">Marketplace of <%= current_user.addresses.first().suburb %>
     </h4>
   <% else %>
     <h1 class="text-center display-3">Sign up, to your Local Marketplace! </h1>

@@ -33,7 +33,7 @@ class AddressesController < ApplicationController
   end
 
   def show
-    @address = Address.find(params[:id])
+    @address = Address.includes(user: { addresses: [] }).find(params[:id])
     flash[:alert] = "Address Added Successfully"
     redirect_to addresses_path
   end

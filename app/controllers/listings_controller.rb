@@ -16,14 +16,14 @@ class ListingsController < ApplicationController
       current_user.addresses.includes(user: { addresses: [] }).pluck(:postcode).uniq.each do |cupc|
         # current_user_post_code = cupc.postcode
         # User.joins(:addresses).where()
-        Listing.active.includes(user: { addresses: [] }).each do |listing|
-          pc = listing.user.addresses.first().postcode
+        Listing.with_attached_images.all.active.includes(user: { addresses: [] }).each do |listing|
+          pc = listing.user.addresses.first.postcode
           @listings << listing if pc == cupc
         end
       end
       @listings
     else
-      @listings = Listing.active.sample(6)
+      @listings = Listing.with_attached_images.all.active.sample(6)
     end
   end
 
@@ -51,10 +51,6 @@ class ListingsController < ApplicationController
     end
   end
 
-  # def show
-  #   # @listing = Listing.find(params[:id])
-
-  # end
   def show
     if user_signed_in?
       stripe_session = Stripe::Checkout::Session.create(
@@ -62,12 +58,12 @@ class ListingsController < ApplicationController
         client_reference_id: current_user ? current_user.id : nil,
         customer_email: current_user ? current_user.email : nil,
         line_items: [{
-                       amount: (@listing.price * 100).to_i,
-                       name: @listing.name,
-                       description: @listing.description,
-                       currency: "aud",
-                       quantity: 1,
-                     }],
+          amount: (@listing.price * 100).to_i,
+          name: @listing.name,
+          description: @listing.description,
+          currency: "aud",
+          quantity: 1,
+        }],
         payment_intent_data: {
           metadata: {
             listing_id: @listing.id,
@@ -79,7 +75,6 @@ class ListingsController < ApplicationController
       )
       @session_id = stripe_session.id
     else
-      ######## puts in a message
       flash[:alert] = "Sign up to purchase today!"
     end
   end
@@ -105,6 +100,6 @@ class ListingsController < ApplicationController
   end
 
   def set_listing
-    @listing = Listing.find(params[:id])
+    @listing = Listing.with_attached_images.find(params[:id])
   end
 end

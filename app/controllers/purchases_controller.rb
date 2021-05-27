@@ -3,7 +3,7 @@ class PurchasesController < ApplicationController
   before_action :authenticate_user!, only: %i[success index]
 
   def success
-    @listing = Listing.find(params[:listingId])
+    @listing = Listing.with_attached_images.all.find(params[:listingId])
   end
 
   def webhook
@@ -15,11 +15,11 @@ class PurchasesController < ApplicationController
     Purchase.create(user_id: buyer_id, listing_id: listing_id, payment_intent_id: payment_intent_id,
                     receipt_url: payment.charges.data[0].receipt_url)
 
-    listing = Listing.find(listing_id)
+    listing = Listing.includes(user: { purchases: [] }).find(listing_id)
     listing.update(status: "purchased")
   end
 
   def index
-    @purchases = current_user.purchases
+    @purchases = current_user.purchases.includes(user: { purchases: [] })
   end
 end

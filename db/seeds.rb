@@ -13,11 +13,11 @@ User.destroy_all
 puts "Seeding started"
 puts "Creating DB"
 
-user1 = User.create(username: "Vera444",
-                    email: "test@test.com",
+user1 = User.create(username: "User1",
+                    email: "User1@test.com",
                     password: "password")
 
-2.times do
+3.times do
   user1.listings.create(
     name: "Face Masks",
     description: "Pack of 5 handmade facemasks",
@@ -27,19 +27,21 @@ user1 = User.create(username: "Vera444",
   )
 end
 
+
+
 user1.addresses.create(
-  street: "fake",
+  street: "Fake",
   number: 22,
   postcode: 3000,
-  suburb: "melbourne",
+  suburb: "Melbourne",
   state: "VIC",
 )
 
-user2 = User.create(username: "reg222",
-                    email: "test2@test.com",
+user2 = User.create(username: "User2",
+                    email: "User2@test.com",
                     password: "password")
 
-2.times do
+3.times do
   user2.listings.create(
     name: "Button Down Shirt",
     description: "Pack of Two Mens Button down Shirts, Large",
@@ -53,8 +55,53 @@ user2.addresses.create(
   street: "fake2",
   number: 22,
   postcode: 3123,
-  suburb: "hawthorne east",
+  suburb: "Hawthorne East",
   state: "VIC",
 )
 
+user3 = User.create(username: "User3",
+                    email: "User3@test.com",
+                    password: "password")
+
+3.times do
+  user3.listings.create(
+    name: "Pillow",
+    description: "Knitted Pineapple pillow",
+    price: rand(40.0...50.0),
+    category: "Home",
+    status: 1,
+  )
+end
+
+user3.addresses.create(
+  street: "fake3",
+  number: 22,
+  postcode: 3123,
+  suburb: "Hawthorne East",
+  state: "VIC",
+)
+
+# USER4 Start
+
+user4 = User.create(username: "User4",
+                    email: "User4@test.com",
+                    password: "password")
+
+4.times do
+  user4.listings.create(
+    name: "Bike Accessories",
+    description: "Random assortment of bike accessories",
+    price: rand(40.0...50.0),
+    category: "Sport",
+    status: 1,
+  )
+end
+
+user4.addresses.create(
+  street: "fake4",
+  number: 22,
+  postcode: 3123,
+  suburb: "Melbourne",
+  state: "VIC",
+)
 puts "Seeding complete"

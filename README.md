@@ -1,24 +1,44 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Two-Sided Marketplace CoderAcademy T2A2
 
-Things you may want to cover:
+Local Marketplace is an app designed for individuals who like to buy goods locally, it promotes buying goods from people in your local postcode, although similar marketplaces exist such as etsy, and facebook marketplace. Local Marketplace is unique as it brings people together that do not know each other and unlike etsy which products can be purchased from anywhere in the world it focuses on only purchasing from sellers who are in your local area.
 
-* Ruby version
+The target audience for this application is for anyone who wants to sell homemade goods such as but not limited to; artists and craftspeople.
+At the initial stages an Australian audience is also considered inplace, with Listing being in Australian dollars.
 
-* System dependencies
+Deployed::
 
-* Configuration
+https://localmarketplace.herokuapp.com/
 
-* Database creation
+Tech stack:
 
-* Database initialization
+Front-end:
+HTML5
+SCSS
+Embedded Ruby
+Bootstrap 4.6.0
 
-* How to run the test suite
+Back-end:
+Ruby 2.7.2
+Rails 6.0.6
 
-* Services (job queues, cache servers, search engines, etc.)
+Database:
+Postgresql
 
-* Deployment instructions
+Deployment:
+Heroku
 
-* ...
+Utilities:
+Stripe
+AWS S3
+Trello
+Ultrahook
+Devise
+
+DevOps:
+Git
+Githib
+VSC
+RubyMine
+Bundler

@@ -11,4 +11,3 @@ class ApplicationController < ActionController::Base
   end
 end
 
-# address_attributes: [:state, :postcode, :street, :number]

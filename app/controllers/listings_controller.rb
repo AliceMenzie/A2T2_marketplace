@@ -3,19 +3,23 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: %i[show]
   before_action :authorize_listing, only: %i[edit update destroy]
 
+
+
+
   def list
     @my_listings = current_user.listings
   end
 
+#--------------------------------------
+# Queries the postcode column of the addresses model of the current user 
+# Queries the postcode column of the addresses model for all users via the User model
+# Queries the listing model for sellers (FK) which belong to the addresses model
+#--------------------------------------
+
   def index
     if user_signed_in?
       @listings = []
-      # get all postcodes of current user
-      # get all users postcodes which shared with current user
-
       current_user.addresses.includes(user: { addresses: [] }).pluck(:postcode).uniq.each do |cupc|
-        # current_user_post_code = cupc.postcode
-        # User.joins(:addresses).where()
         Listing.with_attached_images.all.active.includes(user: { addresses: [] }).each do |listing|
           pc = listing.user.addresses.first.postcode
           @listings << listing if pc == cupc
@@ -31,6 +35,10 @@ class ListingsController < ApplicationController
     @listing = Listing.new
   end
 
+#--------------------------------------
+# Queries the Listings Model adds to the model with a column user_id as forgien key
+#--------------------------------------
+
   def create
     @listing = current_user.listings.new(listing_params)
     # @listing.status = 1
@@ -42,7 +50,9 @@ class ListingsController < ApplicationController
   end
 
   def edit; end
-
+#--------------------------------------
+# Queries the Listings Model and changes coloumns specified by the user
+#--------------------------------------
   def update
     if @listing.update(listing_params)
       redirect_to @listing
@@ -50,7 +60,9 @@ class ListingsController < ApplicationController
       render :edit
     end
   end
-
+#--------------------------------------
+# Queries Listing model, checks if listing belongs to current user 
+#--------------------------------------
   def show
     if user_signed_in?
       stripe_session = Stripe::Checkout::Session.create(
@@ -78,6 +90,10 @@ class ListingsController < ApplicationController
       flash[:alert] = "Sign up to purchase today!"
     end
   end
+
+#--------------------------------------
+# Queries the Listing Model and removes from model via the pk column
+#--------------------------------------
 
   def destroy
     @listing.destroy

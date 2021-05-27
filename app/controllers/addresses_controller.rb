@@ -1,17 +1,22 @@
 class AddressesController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit index]
-  # before_action :set_address, only: %i[show]
+ 
   before_action :authorize_address, only: %i[edit update destroy]
 
+#--------------------------------------
+# Queries the Adressess model checks if current user via the fk
+#--------------------------------------
   def index
-    # @postcode = Address.find(params[:postcode])
     @addresses = current_user.addresses
   end
 
   def new
     @address = Address.new
   end
-
+#--------------------------------------
+# Queries the Adressess model checks if current user via the fk,
+# adds to the addresses model 
+#--------------------------------------
   def create
     @address = current_user.addresses.new(address_params)
     if @address.save
@@ -23,7 +28,9 @@ class AddressesController < ApplicationController
 
   def edit
   end
-
+#--------------------------------------
+# Queries the Adressess model changes coloumn data based on users input
+#--------------------------------------
   def update
     if @address.update(address_params)
       redirect_to @address
@@ -31,13 +38,17 @@ class AddressesController < ApplicationController
       render :edit
     end
   end
-
+#--------------------------------------
+# Queries the Adressess via fk to the User model
+#--------------------------------------
   def show
     @address = Address.includes(user: { addresses: [] }).find(params[:id])
     flash[:alert] = "Address Added Successfully"
     redirect_to addresses_path
   end
-
+#--------------------------------------
+# removes all coloumn data refering to the queried address via the user model as fk  
+#--------------------------------------
   def destroy
     @address.destroy
     flash[:alert] = "Deleted Address"
@@ -58,7 +69,4 @@ class AddressesController < ApplicationController
     redirect_to listings_path
   end
 
-  # def set_address
-  #   @address = Address.find(params[:id])
-  # end
 end

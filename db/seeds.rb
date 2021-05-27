@@ -27,8 +27,6 @@ user1 = User.create(username: "User1",
   )
 end
 
-
-
 user1.addresses.create(
   street: "Fake",
   number: 22,
@@ -100,7 +98,7 @@ end
 user4.addresses.create(
   street: "fake4",
   number: 22,
-  postcode: 3123,
+  postcode: 3000,
   suburb: "Melbourne",
   state: "VIC",
 )

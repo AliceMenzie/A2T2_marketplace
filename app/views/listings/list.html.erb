@@ -26,11 +26,8 @@
                 </p>
                 <p class="text-center"><%= number_to_currency(listing.price) %>
                 </p> 
-                </p>
-                <p class="text-center"> listing id: <%= listing.id %>
-                </p>
-                <p class="text-center"> user who listed: <%= listing.id %>
-                </p>
+               
+                
                 <p> Posted by: <%= listing.user.username %></p>
                 <%= listing.user.addresses.first().suburb %>
               </div>

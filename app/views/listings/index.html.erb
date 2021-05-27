@@ -42,7 +42,7 @@
                 <h4><%= number_to_currency(listing.price) %>
                 </h4>
                 <h6> Posted by: <%= listing.user.username %></h6>
-                <h6> Located in: </h6> 
+                <h6> Located in: <%= listing.user.addresses.first().suburb %> </h6> 
               </div>
             </p> 
             <%= link_to "View Product", listing_path(listing), class: "btn btn-outline-dark btn btn-block" %>

@@ -19,7 +19,8 @@
   <div class="card-body">
     <h5 class="card-title"><%= purchase.listing.name %></h5>
     <p class="card-text">
-    <% # <%= image_tag purchase.listing.images.first, width: "40%" %><br/>                 %>
+    <%= purchase.listing.images.attached? ? (image_tag purchase.listing.images.first, width: "35%", alt: "image here alt text") : (image_tag "placeholder.png", width: "35%") %>
+    <br/>
     $<%= purchase.listing.price %><br/>
     From: <%= purchase.listing.user.username %> 
     </p>

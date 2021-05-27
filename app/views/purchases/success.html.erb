@@ -15,9 +15,11 @@
 <div class="card m-auto " style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Thanks for Purchasing <% current_user.username %></h5>
+    <p>-----------------------------</p>
     <p class="card-text">
     <%= @listing.name %><br/>
-    <% # <% image_tag @listing.images.first %><br/> 
+    <%= @listing.images.attached? ? (image_tag @listing.images.first, width: "35%", alt: "image here alt text") : (image_tag "placeholder.png", width: "35%") %>
+    <br/> 
     $<%= @listing.price %><br/>
     From: <%= @listing.user.username %> 
     </p>

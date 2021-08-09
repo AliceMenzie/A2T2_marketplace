@@ -40,3 +40,16 @@ https://localmarketplace.herokuapp.com/
 - VSC
 - RubyMine
 - Bundler
+
+### Wireframes
+![wireframe](docs/wf3.png)
+![wireframe](docs/wf2.png)
+![wireframe](docs/wf1.png)
+![wireframe](docs/wf4.png)
+![wireframe](docs/wf5.png)
+
+### R14 ERD
+![erd](docs/erd.png)
+
+ ### Sitemap 
+ ![sitemap](docs/sitemap.png)

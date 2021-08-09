@@ -5,11 +5,11 @@ Local Marketplace is an app designed for individuals who like to buy goods local
 The target audience for this application is for anyone who wants to sell homemade goods such as but not limited to; artists and craftspeople.
 At the initial stages an Australian audience is also considered inplace, with Listing being in Australian dollars.
 
- ## Deployed:
+ ## Deployed
 
 https://localmarketplace.herokuapp.com/
 
-## Tech stack:
+## Tech stack
 
 ### Front-end:
 - HTML5

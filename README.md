@@ -12,31 +12,31 @@ https://localmarketplace.herokuapp.com/
 ## Tech stack:
 
 ### Front-end:
-HTML5
-SCSS
-Embedded Ruby
-Bootstrap 4.6.0
+- HTML5
+- SCSS
+- Embedded Ruby
+- Bootstrap 4.6.0
 
 ### Back-end:
-Ruby 2.7.2
-Rails 6.0.6
+- Ruby 2.7.2
+- Rails 6.0.6
 
 ### Database:
-Postgresql
+- Postgresql
 
 ### Deployment:
-Heroku
+- Heroku
 
 ### Utilities:
-Stripe
-AWS S3
-Trello
-Ultrahook
-Devise
+- Stripe
+- AWS S3
+- Trello
+- Ultrahook
+- Devise
 
 ### DevOps:
-Git
-Githib
-VSC
-RubyMine
-Bundler
+- Git
+- Githib
+- VSC
+- RubyMine
+- Bundler

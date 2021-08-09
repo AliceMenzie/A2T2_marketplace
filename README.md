@@ -48,8 +48,8 @@ https://localmarketplace.herokuapp.com/
 ![wireframe](docs/wf4.png)
 ![wireframe](docs/wf5.png)
 
-### R14 ERD
+### ERD
 ![erd](docs/erd.png)
 
- ### Sitemap 
+### Sitemap 
  ![sitemap](docs/sitemap.png)
